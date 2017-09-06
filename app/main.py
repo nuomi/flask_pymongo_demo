@@ -4,6 +4,7 @@ from flask_pymongo import PyMongo
 app = Flask(__name__)
 app.config['MONGO_HOST'] = 'mongo_test'
 app.config['MONGO_DBNAME'] = 'db_test'
+app.config['MONGO_CONNECT'] = False
 
 mongo = PyMongo(app)
 
