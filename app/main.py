@@ -11,11 +11,11 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-def hello():
+def home():
     return "Hello World from Flask"
 
 @app.route('/all')
-def home_page():
+def all():
     # so find() will return objects without _id 
     collection = mongo.db.collection.find({}, {'_id': False})
     print('print count')
