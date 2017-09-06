@@ -15,16 +15,12 @@ def hello():
 
 @app.route('/all')
 def home_page():
-    collection = mongo.db.collection.find()
+    # so find() will return objects without _id 
+    collection = mongo.db.collection.find({}, {'_id': False})
     print('print count')
     print(collection.count())
 
-    item_array= []
-    for record in collection:
-        del record['_id']
-        item_array.append(record)
-   
-    return jsonify(item_array)
+    return jsonify(list(collection))
 
 @app.route('/add')
 def add():
